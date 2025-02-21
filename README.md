@@ -7,11 +7,11 @@
 1. Update config.yaml
 2. Update schema.yaml
 3. Update params.yaml
-4. Update the entity
-5. Update the configuration manager in src config
-6. Update the components
-7. Update the pipeline 
-8. Update the main.py
+4. Update the entity                        (config entity)
+5. Update the configuration manager in src config        (configuration.py)
+6. Update the components             (create component)
+7. Update the pipeline               (create pipeline)
+8. Update the main.py                 (add in main.py)    delete artiflex for each process
 9. Update the app.py
 
 
