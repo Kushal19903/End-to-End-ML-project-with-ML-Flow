@@ -6,7 +6,7 @@
 
 1. Update config.yaml
 2. Update schema.yaml
-3. Update params.yaml
+3. Update params.yaml            (used for model ttraining)
 4. Update the entity                        (config entity)
 5. Update the configuration manager in src config        (configuration.py)
 6. Update the components             (create component)

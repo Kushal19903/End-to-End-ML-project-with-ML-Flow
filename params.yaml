@@ -1,1 +1,4 @@
-key: val 
+ElasticNet:
+  alpha: 0.2
+  l1_ratio: 0.1   #used for model training
+  #if we use random forest or decision trees model we initilize here
