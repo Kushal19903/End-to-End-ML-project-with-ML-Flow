@@ -80,7 +80,14 @@ export MLFLOW_TRACKING_USERNAME=Kushal19903
 export MLFLOW_TRACKING_PASSWORD=68a140eff3be1be76627b033e2aac7487d069bf2
 
 ```
+prediction.py
+app.py
+css js html result setup
+run app.py
+/train  - values --- output
 
+write code in docker also to make code as image format
+create main.yaml in github 
 
 
 # AWS-CICD-Deployment-with-Github-Actions
