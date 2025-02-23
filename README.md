@@ -94,7 +94,8 @@ create main.yaml in github
 
 ## 1. Login to AWS console.
 
-## 2. Create IAM user for deployment
+## 2. Create IAM user for deployment   ---- user ----create ----attach 3 option---policy
+##----security----access key generate----CLI----CREATE ACCESS KEY----DOWNLOAD CSV FILE ---open
 
 	#with specific access
 
@@ -121,16 +122,18 @@ create main.yaml in github
 
 	2. AmazonEC2FullAccess
 
-	
+#-----ecr ---- create repository  ---- copy URI
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 566373416292.dkr.ecr.ap-south-1.amazonaws.com/mlproj
+    - Save the URI: 528757828449.dkr.ecr.eu-north-1.amazonaws.com/mlproj
 
-	
+#---dashboard EC2 ----mlproj-machine  -----ubantu---select instance provioder	----t2/t3large 8gb
+#---key pair login---create mlproj(RPS) ----downloaded---allow http and https traffic---configuration size atleast 32gb---launch instance ----view launch instance---running---click instance id---connect
+---install
 ## 4. Create EC2 machine (Ubuntu) 
 
 ## 5. Open EC2 and Install docker in EC2 Machine:
 	
-	
+	installlllllllllllllllllll
 	#optinal
 
 	sudo apt-get update -y
@@ -146,10 +149,14 @@ create main.yaml in github
 	sudo usermod -aG docker ubuntu
 
 	newgrp docker
+
+-- success - docker --version
 	
 # 6. Configure EC2 as self-hosted runner:
     setting>actions>runner>new self hosted runner> choose os> then run command one by one
 
+--github in new tab ---settings ----run all command ---connecting github with (aws)
+--when we push to github for updates it will automatically deploy for automated code by self host runner----> configure command give ----enter ----"self-host"---enter--github connected yo aws success
 
 # 7. Setup github secrets:
 
@@ -164,7 +171,7 @@ create main.yaml in github
     ECR_REPOSITORY_NAME = simple-app
 
 
-
+---settings ---secrate variables---actions---secrate repository---"aws secrate id downloaded file in excel paste it"
 
 ## About MLflow 
 MLflow
