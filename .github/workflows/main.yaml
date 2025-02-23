@@ -39,15 +39,21 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq unzip
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4  #changes 4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}                      #cridentials
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          # Use role-to-assume for better security
+          aws-region: ${{ secrets.AWS_REGION }} 
+          #aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}                      #cridentials
+          #aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          #aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Login to Amazon ECR           #loging with ecr
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: aws-actions/amazon-ecr-login@v2   #2
+        #changwes
+        with:
+          mask-password: 'true'  # Ensure Docker password is masked
 
       - name: Build, tag, and push image to Amazon ECR   #build docker image
         id: build-image
@@ -72,15 +78,21 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4   #changes 4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}      #authenticate
-          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}  #changes
+          # Use role-to-assume for better security
+          aws-region: ${{ secrets.AWS_REGION }}    #changes
+          #aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          #aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}      #authenticate
+          #aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: aws-actions/amazon-ecr-login@v2   #2
+
+        with:         #changes
+          mask-password: 'true' 
       
       
       - name: Pull latest images
